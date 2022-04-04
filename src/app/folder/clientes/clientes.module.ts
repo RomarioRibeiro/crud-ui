@@ -3,16 +3,19 @@ import { CommonModule } from '@angular/common';
 import { ClientesCadastroComponent } from './clientes-cadastro/clientes-cadastro.component';
 import { ClientesListComponent } from './clientes-list/clientes-list.component';
 import { ClientesRoutingModule } from './clientes.routing';
+import { IonicModule } from '@ionic/angular';
 
 
 
 @NgModule({
   declarations: [
     ClientesCadastroComponent,
+
     ClientesListComponent
   ],
   imports: [
     CommonModule,
+    IonicModule,
     ClientesRoutingModule
   ]
 })
