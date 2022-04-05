@@ -1,34 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from 'src/app/core/service/alert.service';
 import { ToastService } from 'src/app/core/service/toast.service';
-import { ClientesService } from '../clientes.service';
+import { ProdutoService } from '../produto.service';
 
 @Component({
-  selector: 'app-clientes-list',
-  templateUrl: './clientes-list.component.html',
-  styleUrls: ['./clientes-list.component.css']
+  selector: 'app-produtos-list',
+  templateUrl: './produtos-list.component.html',
+  styleUrls: ['./produtos-list.component.css'],
 })
-export class ClientesListComponent implements OnInit {
+export class ProdutosListComponent implements OnInit {
 
-  clientes: any [] = [];
-
-  constructor(private clientesService: ClientesService,
+  produto:any [] = [];
+  constructor(private produtoService: ProdutoService,
     private alert: AlertService,
     private toast: ToastService) { }
 
-  ngOnInit(): void {}
-
-
-
+  ngOnInit() {
+    this.carregarLista();
+  }
   ionViewDidEnter(){
     this.carregarLista();
    }
 
 
   carregarLista() {
-    this.clientesService.getAll()
+    this.produtoService.getAll()
       .then(obj => {
-        this.clientes = obj;
+        this.produto = obj;
       })
   }
 
@@ -38,9 +36,9 @@ export class ClientesListComponent implements OnInit {
 
   executeRemove(cliente: any){
     try {
-      const index = this.clientes.indexOf(cliente);
-      this.clientes.splice(index, 1);
-      this.clientesService.delete(cliente.id);
+      const index = this.produto.indexOf(cliente);
+      this.produto.splice(index, 1);
+      this.produtoService.delete(cliente.id);
 
       this.toast.showSucess('Cliente removido com sucesso');
     } catch (error) {

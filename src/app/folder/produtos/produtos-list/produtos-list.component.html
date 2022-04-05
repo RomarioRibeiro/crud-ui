@@ -15,14 +15,13 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button expand="block" color="primary"[routerLink]="['/clientes', cliente.id]">
+            <ion-button expand="block" color="primary">
               <ion-icon slot="start" name="pencil"></ion-icon>
               Editar
             </ion-button>
           </ion-col>
           <ion-col>
-            <ion-button expand="block" color="danger" fill="outline"  
-            (click)="remove(cliente)">
+            <ion-button expand="block" color="danger" fill="outline">
               <ion-icon slot="start" name="trash"></ion-icon>
               Excluir
             </ion-button>
@@ -40,3 +39,4 @@
   </ion-fab>
 
 </ion-content>
+
