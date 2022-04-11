@@ -29,7 +29,7 @@ export class ClientesListComponent implements OnInit {
     this.clientesService.getAll()
       .then(obj => {
         this.clientes = obj;
-      })
+      });
   }
 
   remove(clientes: any) {

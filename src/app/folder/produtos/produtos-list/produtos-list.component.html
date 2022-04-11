@@ -1,16 +1,16 @@
 <ion-header>
   <ion-toolbar color="medium">
-    <ion-title>Clientes</ion-title>
+    <ion-title>Produto</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let cliente of clientes">
+    <ion-item *ngFor="let produto of produtos">
       <ion-label>
-        <h1>Nome: {{cliente.nome}}</h1>
-        <p class="ion-text-wrap">Cpf: {{cliente.cpf}}</p>
-        <p class="ion-text-wrap">Telefone: {{cliente.telefone}}</p>
+        <h1>Nome: {{produto.nome}}</h1>
+        <p class="ion-text-wrap">Cpf: {{produto.cpf}}</p>
+        <p class="ion-text-wrap">Telefone: {{produto.telefone}}</p>
 
       <ion-grid>
         <ion-row>

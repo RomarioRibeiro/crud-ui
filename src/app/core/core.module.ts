@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { EmpresaService } from '../folder/empresa/empresa.service';
 import { ProdutoService } from '../folder/produtos/produto.service';
+import { CategoriasService } from '../folder/categorias/categorias.service';
 
 
 
@@ -18,7 +19,8 @@ import { ProdutoService } from '../folder/produtos/produto.service';
   providers: [
     ClientesService,
     EmpresaService,
-    ProdutoService
+    ProdutoService,
+    CategoriasService
   ],
   exports: [],
 

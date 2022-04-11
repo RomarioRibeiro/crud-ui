@@ -19,33 +19,33 @@ export class EmpresaListComponent implements OnInit {
     private toast: ToastService) { }
 
   ngOnInit(): void{
-    this.carregarLista();
+
   }
   ionViewDidEnter(){
     this.carregarLista();
-   }
+  }
 
 
   carregarLista() {
     this.empresaService.getAll()
       .then(obj => {
         this.empresas = obj;
-      })
+      });
   }
 
-  remove(clientes: any) {
-    this.alert.showConfirmDelete(clientes.nome, () => this.executeRemove(clientes));
+  remove(empresa: any) {
+    this.alert.showConfirmDelete(empresa.cnpj, () => this.executeRemove(empresa));
   }
 
-  executeRemove(cliente: any){
+  executeRemove(empresas: any){
     try {
-      const index = this.empresas.indexOf(cliente);
+      const index = this.empresas.indexOf(empresas);
       this.empresas.splice(index, 1);
-      this.empresaService.delete(cliente.id);
+      this.empresaService.delete(empresas.id);
 
-      this.toast.showSucess('Cliente removido com sucesso');
+      this.toast.showSucess('Empresa removido com sucesso');
     } catch (error) {
-      this.toast.showError('Erro ao remover o cliente');
+      this.toast.showError('Erro ao remover o Empresa');
     }
   }
 }

@@ -10,13 +10,13 @@ import { ProdutoService } from '../produto.service';
 })
 export class ProdutosListComponent implements OnInit {
 
-  produto:any [] = [];
+  produtos: any [] = [];
   constructor(private produtoService: ProdutoService,
     private alert: AlertService,
     private toast: ToastService) { }
 
   ngOnInit() {
-    this.carregarLista();
+
   }
   ionViewDidEnter(){
     this.carregarLista();
@@ -26,8 +26,8 @@ export class ProdutosListComponent implements OnInit {
   carregarLista() {
     this.produtoService.getAll()
       .then(obj => {
-        this.produto = obj;
-      })
+        this.produtos = obj;
+      });
   }
 
   remove(clientes: any) {
@@ -36,8 +36,8 @@ export class ProdutosListComponent implements OnInit {
 
   executeRemove(cliente: any){
     try {
-      const index = this.produto.indexOf(cliente);
-      this.produto.splice(index, 1);
+      const index = this.produtos.indexOf(cliente);
+      this.produtos.splice(index, 1);
       this.produtoService.delete(cliente.id);
 
       this.toast.showSucess('Cliente removido com sucesso');

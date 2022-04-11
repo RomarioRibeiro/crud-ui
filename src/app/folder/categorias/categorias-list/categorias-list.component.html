@@ -1,28 +1,28 @@
 <ion-header>
   <ion-toolbar color="medium">
-    <ion-title>Empresas</ion-title>
+    <ion-title>Clientes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let empresa of empresas">
+    <ion-item *ngFor="let categoria of categorias">
       <ion-label>
-        <h1>Nome: {{empresa.nome}}</h1>
-        <p class="ion-text-wrap">Cnpj: {{empresa.cnpj}}</p>
-        <p class="ion-text-wrap">Razão Social: {{empresa. razaoSocial}</p>
+        <h1>Nome: {{categoria.nome}}</h1>
+        <p class="ion-text-wrap">Cpf: {{categoria.nome}}</p>
+
 
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-button expand="block" color="primary" [routerLink]="['/empresas', empresa.id]">
+            <ion-button expand="block" color="primary"[routerLink]="['/categorias', categoria.id]">
               <ion-icon slot="start" name="pencil"></ion-icon>
               Editar
             </ion-button>
           </ion-col>
           <ion-col>
             <ion-button expand="block" color="danger" fill="outline"
-            (click)="remove(empresa)">
+            (click)="remove(categoria)">
               <ion-icon slot="start" name="trash"></ion-icon>
               Excluir
             </ion-button>
@@ -40,4 +40,3 @@
   </ion-fab>
 
 </ion-content>
-
